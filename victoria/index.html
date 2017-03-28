@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <title> Tourism Victoria </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, target-densitydpi=medium-dpi" />
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+
+<link rel="stylesheet" href="css/main-2-1-slide-menu2.css" >
+<link rel="stylesheet" href="css/main-responsive.css" >
+<link rel="shortcut icon"  type="image/x-icon"  href="img/tourismvictoria.ico">
+
+  <script src="js/jssor.slider-22.1.8.mini.js" type="text/javascript"></script>
+
+  <script type="text/javascript" src="js/jquery-ui-1.10.4.custom.min.js"> </script>
+   <script type="text/javascript" src="js/quick.js"> </script>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+
+            var jssor_1_options = {
+              $AutoPlay: true,
+              $SlideDuration: 800,
+              $SlideEasing: $Jease$.$OutQuint,
+              $ArrowNavigatorOptions: {
+                $Class: $JssorArrowNavigator$
+              },
+              $BulletNavigatorOptions: {
+                $Class: $JssorBulletNavigator$
+              }
+            };
+
+            var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+
+            /*responsive code begin*/
+            /*you can remove responsive code if you don't want the slider scales while window resizing*/
+            function ScaleSlider() {
+                var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+                if (refSize) {
+                    refSize = Math.min(refSize, 1920);
+                    jssor_1_slider.$ScaleWidth(refSize);
+                }
+                else {
+                    window.setTimeout(ScaleSlider, 30);
+                }
+            }
+            ScaleSlider();
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            /*responsive code end*/
+
+
+
+  var nav = $('nav');
+    var navoffset = $('nav').offset();  
+    /* offset을 이용하여 .menu(메뉴영역)의 위치값을 알아내어 navoffset에 넣어둔다 */
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() >= navoffset.top) {  /* 화면 스크롤 값이 메뉴영역의 top보다 값이 커지면 */
+            nav.css('position','fixed').css('top',0).css('background','white')
+			.css('display','block'); 
+			$("#menu").css("display","block");
+          $("#menu2").css("display","none");
+		  $("#menu h1, .search").css("opacity","1");
+		  $(".ic_menu1").css("margin-top","-37px");
+
+        }else {
+            nav.css('position','absolute').css('top',50).css('background','transparent')
+			.css('display','block'); 
+			$("#menu").css("display","none");
+          $("#menu2").css("display","block");
+		 
+        }
+    });
+
+
+        });
+
+	
+$(function(){
+   
+$(".ic_menu2, .ic_menu1").on("click",function(){
+   $("#menu3").animate({marginRight:"280"},300);
+   $("#black_back").css("opacity","0.7").css("display","block");
+});
+
+$(".close, #black_back").on("click",function(){
+   $("#menu3").animate({marginRight:"-280"},300);
+   $("#black_back").css("opacity","0").css("display","none");
+});
+
+/* menu dropdown*/
+  $(".mainmenu1>li>a").on("mouseover focus",function(){ //<a>에 마우스를 올렸을 때...
+      $(".mainmenu1>li>a").css("color","black").css("text-decoration","none"); 
+//<a>에 글자색을 흰색으로 바꿉니다.
+         $(".mainmenu1 ul:visible").slideUp("fast");
+     
+      $(this).css("color","gray").css("text-decoration","underline");	       
+	  $(this).next().stop().slideDown("normal");
+   });
+
+
+   $(".mainmenu1").on("mouseleave",function(){ //<a>에 마우스를 영역에서 아웃했을때...
+      $(".mainmenu1 ul:visible").slideUp("fast"); 
+
+      //<a>에 마우스를 영역에서 아웃했을때 글자색 흰색으로 바뀝니다.
+      $(".mainmenu1>li>a").css("color","black").css("text-decoration","none");	 
+ 
+   });
+
+/* menu dropdown2*/
+
+   $(".mainmenu2>li>a").on("mouseover focus",function(){ //<a>에 마우스를 올렸을 때...
+     // $(".mainmenu2>li>a").css("color","white").css("text-decoration","none"); 
+//<a>에 글자색을 흰색으로 바꿉니다.
+         $(".mainmenu2 ul:visible").slideUp("fast");
+     
+     // $(this).css("color","gray").css("text-decoration","underline");	       
+	  $(this).next().stop().slideDown("normal");
+   });
+
+
+   $(".mainmenu2").on("mouseleave",function(){ //<a>에 마우스를 영역에서 아웃했을때...
+      $(".mainmenu2 ul:visible").slideUp("fast"); 
+
+      //<a>에 마우스를 영역에서 아웃했을때 글자색 흰색으로 바뀝니다.
+    //  $(".mainmenu2>li>a").css("color","white").css("text-decoration","none");	 
+ 
+   });
+
+
+
+/* 오른쪽 상세 menu  */
+  $("#gnb3>li>a").on("click focus",function(){ //<a>에 마우스를 올렸을 때...
+      $("#gnb3>li>a").css("color","white").css("text-decoration","none"); 
+//<a>에 글자색을 흰색으로 바꿉니다.
+         $("#gnb3 ul:visible").slideUp("fast");
+     
+      $(this).css("color","gray").css("text-decoration","underline");	       
+	  $(this).next().stop().slideDown("normal");
+   });
+
+
+   $("#gnb3").on("mouseleave",function(){ //<a>에 마우스를 영역에서 아웃했을때...
+      $("#gnb3 ul:visible").slideUp("fast"); 
+
+      //<a>에 마우스를 영역에서 아웃했을때 글자색 흰색으로 바뀝니다.
+      $("#gnb3>li>a").css("color","white").css("text-decoration","none");	 
+ 
+   });
+
+
+
+});
+    </script>
+    <style>
+        .jssorb05 {
+            position: absolute;
+        }
+        .jssorb05 div, .jssorb05 div:hover, .jssorb05 .av {
+            position: absolute;
+            /* size of bullet elment */
+            width: 16px;
+            height: 16px;
+            background: url('img/b05.png') no-repeat;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .jssorb05 div { background-position: -7px -7px; }
+        .jssorb05 div:hover, .jssorb05 .av:hover { background-position: -37px -7px; }
+        .jssorb05 .av { background-position: -67px -7px; }
+        .jssorb05 .dn, .jssorb05 .dn:hover { background-position: -97px -7px; }
+
+        .jssora22l, .jssora22r {
+            display: block;
+            position: absolute;
+            /* size of arrow element */
+            width: 40px;
+            height: 58px;
+            cursor: pointer;
+            background: url('img/a22.png') center center no-repeat;
+            overflow: hidden;
+        }
+        .jssora22l { background-position: -10px -31px; }
+        .jssora22r { background-position: -70px -31px; }
+        .jssora22l:hover { background-position: -130px -31px; }
+        .jssora22r:hover { background-position: -190px -31px; }
+        .jssora22l.jssora22ldn { background-position: -250px -31px; }
+        .jssora22r.jssora22rdn { background-position: -310px -31px; }
+        .jssora22l.jssora22lds { background-position: -10px -31px; opacity: .3; pointer-events: none; }
+        .jssora22r.jssora22rds { background-position: -70px -31px; opacity: .3; pointer-events: none; }
+
+		.a1{margin-left:100px;}
+    </style>
+
+<style type="text/css">
+	/* #img1_wrap5{clear:both;}
+
+ #img1_wrap {
+      list-style:none;
+      
+      padding:0;
+     }
+     #img1_wrap>div {
+        position: relative;   
+        overflow: hidden;
+      }
+   #img1_wrap img {
+      margin:0;
+      padding:0;
+      float:left;
+      z-index:1;
+    }   
+   #img1_wrap .caption {
+      position: absolute;
+      top:0px;left:0;
+      width:100%;
+      height:100%;
+ padding-top:20px;
+      background:rgba(0,0,0,0.5);
+      opacity:0;
+      -moz-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      -webkit-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      z-index:1;
+	
+    }
+    #img1_wrap>div:hover .caption {
+      opacity: 1;
+
+    }     
+    #img1_wrap .caption h1, #img1_wrap .caption p {
+      color: #fff;
+     /*text-align: center;*/
+/*	  margin-left:45%;
+    }          
+	#img1_wrap .caption h1{margin-top:60%;}  
+	#img1_wrap .caption h1 a{padding:12px 24px;background:rgba(255,255,255,1);color:black;}
+	/*#img1_wrap .caption h1 a:hover{padding:12px 40px;background:rgba(0,0,0,1);color:white;}*/
+
+/*#img1_wrap .a1_1{position:absolute;top:0;left:0;}
+
+#img1_wrap  h1 a.a1_1{text-align:center;
+margin-top:61.9%;margin-left:45%;
+padding:12px 24px;
+background:rgba(255,255,255,0.5);color:black;}  
+
+
+
+</style>
+ </head>
+
+<body>
+
+
+
+
+<nav id="menu">
+<div id="menu_wrap">
+		  <ul id="gnb" class="mainmenu1">
+			<li class="a1 m1"><a href="#">HOTELS/B&Bs</a>
+			<ul class="sub1 z1">
+		    <li><a href="#">Hotels & Resorts</a></li>
+			<li><a href="#">Specialty Lodging</a></li>
+            <li><a href="#">Vacation Rentals</a></li>
+			<li><a href="#">Campgrounds</a></li>
+		  </ul>
+			</li>
+
+			<li class="a1 m1"><a href="#">THINGS TO DO</a>
+			 <ul class="sub2 z1">
+		    <li><a href="#">Attractions</a></li>
+            <li><a href="#">Foods & Drinks</a></li>
+			<li><a href="#">Shopping</a></li>
+            <li><a href="#">Beaches & Lakes</a></li>
+			<li><a href="#">Sport & Outdoors</a></li>
+		  </ul>
+			</li>
+
+			<!--<li class="a1 aa"><a href="#">FESTIVALS/EVENTS</a>
+			<ul class="sub3">
+			<li><a href="#">Calendar of Events</a></li>
+		    <li><a href="#">Annual Events in Victoria</a></li>
+            <li><a href="#">Festivals</a></li>
+			<li><a href="#">Submit an Event</a></li>
+     	 </ul>
+		 </li>-->
+		 </ul><br />
+<h1 class="none"><a href="#"><img src="img/tourismvictoria.png" alt="" width="39px" ></a></h1>
+
+
+			<ul id="gnb2" class="mainmenu1">
+
+			<li class="a1 m1"><a href="#">FESTIVALS/EVENTS</a>
+				<ul class="sub3 z1">
+			<li><a href="#">Calendar of Events</a></li>
+		    <li><a href="#">Annual Events in Victoria</a></li>
+            <li><a href="#">Festivals</a></li>
+			<li><a href="#">Submit an Event</a></li>
+     	 </ul>
+			</li>
+
+
+			<!--<li class="a1"><a href="#">Contact</a></li>-->
+
+			<li class="m1"><a href="#">PLAN YOUR TRIP</a>
+				<ul class="sub4 z1">
+		    <li><a href="#">About Victoria</a></li>
+            <li><a href="#">Getting Around</a></li>
+			<li><a href="#">Travel Tips</a></li>
+            <li><a href="#">eNewsletter Sign-up</a></li>
+			<li><a href="#">Living in Victoria</a></li>
+		 </ul>
+				</li>
+		  </ul>
+</div>
+
+		  <ul id="ic_menu">
+		  <li class="search"><a href="#"><img src="img/tourismvictoria.png" width="39px" alt="search"></a></li>
+		  <li class="ic_menu1"><img src="img/m-menu1.png" alt="ic_menu" ></li>
+		  </ul>
+</nav>
+
+
+<nav id="menu2">
+<div id="menu_wrap">
+		  <ul id="gnb" class="mainmenu2">
+			<li class="a1 m1"><a href="#">HOTELS/B&Bs</a>
+			<ul class="sub1 z1">
+		    <li><a href="#">Hotels & Resorts</a></li>
+			<li><a href="#">Specialty Lodging</a></li>
+            <li><a href="#">Vacation Rentals</a></li>
+			<li><a href="#">Campgrounds</a></li>
+		  </ul>
+			</li>
+
+			<li class="a1 m1"><a href="#">THINGS TO DO</a>
+				<ul class="sub2 z1">
+		    <li><a href="#">Attractions</a></li>
+            <li><a href="#">Foods & Drinks</a></li>
+			<li><a href="#">Shopping</a></li>
+            <li><a href="#">Beaches & Lakes</a></li>
+			<li><a href="#">Sport & Outdoors</a></li>
+		  </ul>
+			</li>
+
+			<!--<li class="a1 aa"><a href="#">FESTIVALS/EVENTS</a>
+				<ul class="sub3">
+			<li><a href="#">Calendar of Events</a></li>
+		    <li><a href="#">Annual Events in Victoria</a></li>
+            <li><a href="#">Festivals</a></li>
+			<li><a href="#">Submit an Event</a></li>
+     	 </ul>
+			</li>-->
+			</ul>
+<h1 class="logo1"><a href="#"><img src="img/tourismvictoria2.png" width="100px" alt=""></a></h1>
+<h1 class="logo2"><a href="#"><img src="img/tourismvictoria2.png" width="70px" alt=""></a></h1>
+
+
+			<ul id="gnb2" class="mainmenu2">
+			<li class="a1 m1"><a href="#">FESTIVALS/EVENTS</a>
+				<ul class="sub3 z1">
+			<li><a href="#">Calendar of Events</a></li>
+		    <li><a href="#">Annual Events in Victoria</a></li>
+            <li><a href="#">Festivals</a></li>
+			<li><a href="#">Submit an Event</a></li>
+     	 </ul>
+			</li>
+			</li>
+
+			<!--<li class="a1"><a href="#">Elements</a></li>-->
+
+			<li class="m1"><a href="#">PLAN YOUR TRIP</a>
+				<ul class="sub4 z1">
+		    <li><a href="#">About Victoria</a></li>
+            <li><a href="#">Getting Around</a></li>
+			<li><a href="#">Travel Tips</a></li>
+            <li><a href="#">eNewsletter Sign-up</a></li>
+			<li><a href="#">Living in Victoria</a></li>
+				</ul>
+			</li>
+		  </ul>
+</div>
+
+		  <ul id="ic_menu">
+		  <h1 class="logo3"><a href="#"><img src="img/tourismvictoria2.png" width="50px" alt=""></a></h1>
+
+		  <li class="ic_menu2"><img src="img/m-menu2.png" alt="ic_menu" ></li>
+		  </ul>
+
+		<!--  <h1 class="logo3"><a href="#"><img src="img/tourismvictoria2.png" width="55px" alt=""></a></h1>-->
+		  
+</nav>
+
+
+
+<div id="menu3">
+   <ul id="gnb3">
+	   <li><a href="#">HOTELS/B&Bs</a>
+	      <ul class="sub1">
+		  <br />
+			<li><a href="#">- Hotels & Resorts</a></li>
+			<li><a href="#">- Specialty Lodging</a></li>
+            <li><a href="#">- Vacation Rentals</a></li>
+			<li><a href="#">- Campgrounds & RV Parks</a></li>
+		
+		  </ul>
+	   </li>
+
+	   <li><a href="#">THINGS TO DO</a>
+	      <ul class="sub2"><br />
+			<li><a href="#">- Attractions</a></li>
+            <li><a href="#">- Foods & Drinks</a></li>
+			<li><a href="#">- Shopping</a></li>
+            <li><a href="#">- Beaches & Lakes</a></li>
+			<li><a href="#">- Sport & Outdoors</a></li>
+			  </ul>
+	   </li>
+
+	   <li><a href="#">FESTIVALS/EVENTS</a>
+	     <ul class="sub3"><br />
+		    <li><a href="#">- Calendar of Events</a></li>
+		    <li><a href="#">- Annual Events in Victoria</a></li>
+            <li><a href="#">- Festivals</a></li>
+			<li><a href="#">- Submit an Event</a></li>
+		 </ul>
+	   </li>
+
+	   <li><a href="#">PLAN YOUR TRIP</a>
+	      <ul class="sub4"><br />
+		   <li><a href="#">- About Victoria</a></li>
+            <li><a href="#">- Getting Around</a></li>
+			<li><a href="#">- Travel Tips</a></li>
+            <li><a href="#">- eNewsletter Sign-up</a></li>
+			<li><a href="#">- Living in Victoria</a></li>
+		 </ul>
+	   </li>
+	 </ul>
+
+	 <p class="close"><a href="#"><img src="img/ic_menu-x2.png" alt="x"></a></p>
+</div>
+
+
+
+<div id="black_back"></div>
+
+
+
+<section>
+  <article>
+	<div class="bg bg1">
+    <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:1300px;height:700px;overflow:hidden;visibility:hidden;">
+        <!-- Loading Screen -->
+       <div data-u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block; top: 0px; left: 0px; width: 100%; height: 100%;"></div>
+            <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
+        </div>
+        <div data-u="slides" class="slide"  class="img1" style="cursor:default;position:relative;top:0px;left:0px;width:1300px;height:700px;overflow:hidden;">
+            <div>
+                <img data-u="image" src="img/government-building-victoria3.jpg" />
+                <div style="position:absolute;top:490px;left:350px;width:550px;height:120px;z-index:0;font-family:CountryBlueprint;font-size:50px;color:#ffffff;line-height:38px;text-align:center;"><img src="img/tourism.png" alt="" /></div>
+            </div>
+
+            <div>
+                <img data-u="image" src="img/fireworks2.jpg" />
+                <div style="position:absolute;top:490px;left:350px;width:550px;height:120px;z-index:0;font-size:50px;color:#ffffff;line-height:38px;text-align:center"><img src="img/tourism.png" alt="" /></div>
+            </div>
+            <a data-u="any" href="http://www.jssor.com" style="display:none">Full Width Slider</a>
+            <div>
+                <img data-u="image" src="img/canadaday3.jpg" />
+                <div style="position:absolute;top:490px;left:350px;width:550px;height:120px;z-index:0;font-size:50px;color:#ffffff;text-align:center"><img src="img/tourism.png" alt="" /></div>
+            </div>
+        </div>
+        <!-- Bullet Navigator -->
+        <div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+            <!-- bullet navigator item prototype -->
+            <div data-u="prototype" style="width:16px;height:16px;"></div>
+        </div>
+        <!-- Arrow Navigator -->
+        <span data-u="arrowleft" class="jssora22l" style="top:0px;left:8px;width:40px;height:58px;" data-autocenter="2"></span>
+        <span data-u="arrowright" class="jssora22r" style="top:0px;right:8px;width:40px;height:58px;" data-autocenter="2"></span>
+    </div>
+    <!-- #endregion Jssor Slider End -->
+	</div>		
+  </article>
+</section>
+
+
+<section id="container">
+<div id="visualback"><div id="maple">
+	<img src="img/MapleLeaf1.png"/>
+</div>
+<div class="welcome">
+
+<h2>Welcome to Victoria, B.C!</h2><br />
+<p>
+Victoria: The Capital of British Columbia<br />
+Embrace the Future. Build on the Past.</p></div>
+<div id="maple2">
+	<img src="img/MapleLeaf2.png"/>
+</div>
+</div>
+
+	<div id="wrap">
+
+		<section id="img1_wrap">		
+			<div id="img1-1" class="m_r a">
+			<img src="img/craigdarroch.jpg" alt="" />
+			<h1><a href="#" class="a1_1">Attractions</a></h1>
+     <a href="#"><div class="caption">
+          <h1 class="a1_2">Attractions</h1>
+    </div>	</a>
+		</div>
+
+
+
+		<div id="img1-2" class="m_r b">
+		<img src="img/whalewatching.jpg" alt="" />
+<h1><a href="#" class="a1_1">Whale Watching</a></h1>
+     <a href="#"><div class="caption">
+          <h1 class="a1_2">Whale Watching</h1>
+    </div></a></div>
+
+
+
+			<div id="img1-3" class="m_r c">
+			<img src="img/bcmuseum.jpg" alt="" />
+<h1><a href="#" class="a1_1">Art & Culture</a></h1>
+     <a href="#"><div class="caption">
+          <h1 class="a1_2">Art & Culture</h1>
+    </div></a></div>
+
+
+			<div id="img1-4" class="d">
+			<img src="img/beer.jpg" alt="" />
+		<h1><a href="#" class="a1_1">Craft Beer</a></h1>
+     <a href="#"><div class="caption">
+          <h1 class="a1_2">Craft Beer</h1>
+    </div></a></div>
+		</section>
+		
+		<!--<section id="img1_wrap2">
+			<h2>What's New</h2>
+			<p>New Collections this Season</p>
+			<div id="" class="">	<img src="img/img8.jpg" alt="" /></div>
+			<div id="" class="">	<img src="img/img9.jpg" alt="" /></div>
+		</section>-->
+<br /><br />
+		<section id="img1_wrap3">
+			
+			<div id="" class="">	<img src="img/sketch.jpg" alt="" /></div>
+			<div id="" class="txt"><!--<img src="img/historytext.jpg" width="350" height="647" alt="" />--><h2>Victoria, B.C</h2><br />Victoria is a unique blend of old world charm and new world experiences. As an island destination, Victoria offers visitors an escape from the hurried world and beams with ambiance. In Victoria, heritage architecture, colourful gardens and traditions like afternoon tea are mixed with outdoor adventure, culinary experiences, cocktail and craft beer scenes. <br /><br />
+
+<h4><a href="#">READ MORE</a></h4><br />
+</div>
+		</section>
+
+		<section id="img1_wrap4">
+		<br /><br />		
+			<div class="txt2"><a href="#"><img src="img/super-natural-bc-logo1.jpg" /></a></div>
+
+			<div class="video-container"><iframe src="https://www.youtube.com/embed/LUXZ1OjFUIM" frameborder="0" allowfullscreen></iframe></div>
+		</section>
+
+		<section id="img1_wrap5">
+<br /><br />
+			<div id="img2-1" class="wrap5-mr">
+			<img src="img/nightmarket.jpg" alt="" />
+			   <h1><a href="#" class="a1_1">Featured Events</a></h1>
+     <a href="#"><div class="caption">
+          <h1 class="a1_2">Featured Events</h1>
+    </div></a></div>
+
+  
+
+
+
+
+
+			<div id="img2-2" class="wrap5-mr"><img src="img/meatfoodwine.jpg" alt="" />
+			   <h1><a href="#" class="a1_1">Highlights</a></h1>
+     <a href="#"><div class="caption">
+          <h1 class="a1_2">Highlights</h1>
+    </div></a></div>
+
+
+
+
+
+			<div id="img2-3" class=""><img src="img/clipper.jpg" alt="" />
+		<h1><a href="#" class="a1_1">Seattle to Victoria</a></h1>
+     <a href="#"><div class="caption">
+          <h1 class="a1_2">Seattle to Victoria</h1>
+    </div></a></div>
+
+		</section>
+
+		<section id="img1_wrap6">
+			<h2></h2>
+			<img src="img/gardens-2.jpg" alt="" usemap="map"/>
+            <p class="map"><a href="#" >VISIT WEBSITE</a></p>
+			</section>
+
+
+
+		<footer id="footer">
+			<div id="foot_wrap">
+				<section id="foot-1" class="f-r">
+					<strong><span>Contact Us</span></strong><br /><br />
+					<p class="address" >
+						812 Wharf Street
+						<br />
+					Victoria, B.C.
+						<br />
+					Email: Information Request
+						<br />
+					Hours: Open daily 9:00 am - 5:00 pm</p>
+				</section>
+
+					<!--<section id="foot-2" class="f-r">
+				<strong><span style="font-size:20px">About Us</span></strong><br />
+					<a href="#">Corporate Information</a><br />
+					<a href="#">Careers</a><br />
+					<a href="#">Sitemap</a><br />
+					<a href="#">Privacy Policy</a><br />
+					<a href="#">Digital Asset Management Library</a><br />
+					<a href="#">Local Host Program</a><br />
+					<a href="#">Blog</a><br />
+				</section>-->
+
+				<section id="foot-3" class="f-r">
+					<strong><span>Follow Us</span></strong><br /><br />
+					<a href="#"><img src="img/icon_facebook_w.png" /></a>
+					<a href="#"><img src="img/icon_twitter_w.png"/></a>
+					<a href="#"><img src="img/icon_blog_w.png" /></a>
+					<a href="#"><img src="img/icon_instagram_w.png"  /></a>
+					<a href="#"><img src="img/icon_kakaostory_w.png" /></a><br /><hr><hr><hr><hr><hr><hr><br />
+					
+				</section>
+
+				<section id="foot-4" class="f-r">
+					<strong><span>eNewsletter Sign Up</span></strong><br /><br />
+					<input type="text" class="searchbox1" placeholder="First Name"><br />
+					<input type="text" class="searchbox2" placeholder="Email"><br /><hr><br />
+				</section>		
+				<p class="rights">
+				<a href="#">Sitemap</a> | <a href="#">Privacy Policy</a> | <a href="#">Careers</a> | <a href="#">Corporate Information</a><br />
+				© 2017 Tourism Victoria. All rights reserved.</p>
+		</div>
+
+
+</footer>
+
+
+<!-- quick 
+<div id="quick_menu">
+		<h3><img src="images/quick1.png"  alt="퀵메뉴" /></h3>
+			<ul>
+				<li class="a"><a href="#"><img src="images/quick2.png"  alt="저자지원" /></a></li>
+				<li class="a"><a href="#"><img src="images/quick3.png"  alt="교재강의요청" /></a></li>
+				<li class="a"><a href="#"><img src="images/quick4.png"  alt="신간도서" /></a></li>
+				<li><a class="top" href="javascript:window.scrollTo(0,0);"><img src="images/quick5.png"  alt="상단으로 이동" /></a></li>
+			</ul>
+	</div>
+-->
+</body>
+</html>
